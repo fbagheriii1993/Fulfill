@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">Fulfill</string>
+    <string name="action_settings">Settings</string>
+    <string name="due_date">Due Date</string>
+    <string name="confirm">Confirm</string>
+    <string name="pic">picture</string>
+    <string name="experience">Experience</string>
+    <string name="health">Health</string>
+    <string name="satisfaction">Satisfaction</string>
+    <string name="st">st</string>
+    <string name="happiness">Happiness</string>
+
+    <string name="Home">Home</string>
+
+
+    <string-array name="difficulty_array">
+        <item>Easy</item>
+        <item>Medium</item>
+        <item>Hard</item>
+    </string-array>
+
+    <string-array name="category_array">
+        <item>Study</item>
+        <item>Exercise</item>
+        <item>work</item>
+        <item>Shopping</item>
+        <item>Home</item>
+        <item> Others</item>
+    </string-array>
+
+    <string-array name="done_array">
+        <item>"0%"</item>
+        <item>"25%"</item>
+        <item>"50%"</item>
+        <item>"100%"</item>
+    </string-array>
+
+
+</resources>
+
