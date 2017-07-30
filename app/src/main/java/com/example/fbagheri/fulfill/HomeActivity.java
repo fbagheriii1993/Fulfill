@@ -211,6 +211,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         btn_today = (ImageButton) findViewById(R.id.btn_today);
         lstNotes = (ListView) findViewById(R.id.lst_notes);
 
+
+
         pb_hp = (ProgressBar) findViewById(R.id.pb_hp);
         pb_st = (ProgressBar) findViewById(R.id.pb_st);
         pb_hlth = (ProgressBar) findViewById(R.id.pb_hlth);

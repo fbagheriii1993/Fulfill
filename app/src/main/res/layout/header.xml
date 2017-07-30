@@ -72,7 +72,9 @@
                     android:layout_height="15dp"
                     android:id="@+id/pb_hp"
                     android:indeterminate="false"
+                    android:background="@color/colorGray"
                     style="@android:style/Widget.ProgressBar.Horizontal"
+
 
                     />
 
@@ -100,7 +102,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginBottom="7dp"
-                android:id="@+id/r2">>
+                android:id="@+id/r2">
 
                 <ProgressBar
                     android:layout_width="fill_parent"
