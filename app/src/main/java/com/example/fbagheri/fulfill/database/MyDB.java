@@ -14,7 +14,7 @@ public class MyDB extends SQLiteOpenHelper{
 
     public MyDB(Context context) {
 
-        super(context, "database.db", null, 5);
+        super(context, "dbname.db", null, 4);
 
     }
 
@@ -22,15 +22,16 @@ public class MyDB extends SQLiteOpenHelper{
     public void onCreate(SQLiteDatabase db) {
 
 
-        db.execSQL("CREATE TABLE tblTask('id' INTEGER NOT NULL PRIMARY KEY  AUTOINCREMENT,'title' TEXT ," +
-                " 'desc' TEXT , 'due' TEXT, 'imageTagId' INTEGER , 'dif' INTEGER , 'done' INTEGER , 'score' INTEGER );");
+       db.execSQL("CREATE TABLE tblTask('id' INTEGER NOT NULL PRIMARY KEY  AUTOINCREMENT,'title' TEXT ," +
+                " 'desc' TEXT , 'due' TEXT, 'tagId' INTEGER , 'dif' INTEGER , 'done' INTEGER , 'score' INTEGER );");
 
-        Log.d("yes", "onCreate() is being executed");
+         Log.d("yes", "onCreate() is being executed");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
-     //   db.execSQL("DROP TABLE IF EXISTS tblTask");
+        db.execSQL("DROP TABLE IF EXISTS tblTask");
+        db.execSQL("DROP TABLE IF EXISTS tblNote");
         onCreate(db);
         Log.d("yes", "onUpgrade() is being executed");
     }

@@ -34,6 +34,7 @@ public class SplashActivity extends Activity {
         txtSplash = (TextView) findViewById(R.id.txt_splash);
         Typeface tf = Typeface.createFromAsset(getAssets(),"fonts/splashfont.ttf");
         txtSplash.setTypeface(tf);
+
     }
 
     public void handlerSplash(){

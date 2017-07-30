@@ -1,7 +1,5 @@
 package com.example.fbagheri.fulfill;
 
-import android.text.Editable;
-
 public class Task {
 
 
@@ -18,6 +16,23 @@ public class Task {
 
     }
 
+    public Task(String title, String desc,int imageTagId) {
+        this(title,desc,imageTagId,0);
+    }
+
+    public Task(String title, String desc,int imageTagId, int difficulty  ) {
+        this(title, desc, imageTagId, 0, difficulty);
+    }
+    public Task(String title, String desc,int imageTagId, int id ,int difficulty ) {
+        this(title, desc, imageTagId, id, difficulty,"",0,0);
+    }
+    public Task(String title, String desc, int imageTagId, int difficulty , String dueDate) {
+        this(title, desc, imageTagId, 0, difficulty, dueDate ,0,0);
+    }
+
+    public Task(String title, String desc, int imageTagId, int difficulty , String dueDate , int done ,int score ) {
+        this(title, desc, imageTagId, 0, difficulty, dueDate , done , score);
+    }
 
 
     public Task(String title, String desc,int imageTagId, int id ,int difficulty , String dueDate , int done ,int score ) {
@@ -30,15 +45,6 @@ public class Task {
         this.done = done;
         this.score = score;
     }
-    public Task(String title, String desc,int imageTagId, int id ,int difficulty) {
-        this.title = title;
-        this.desc = desc;
-        this.id = id;
-        this.imageTagId = imageTagId;
-        this.difficulty = difficulty;
-    }
-
-
 
     @Override
     public String toString() {

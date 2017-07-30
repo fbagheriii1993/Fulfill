@@ -2,8 +2,14 @@
 <resources>
     <color name="colorGray">#e4e4e6</color>
     <color name="colorGrayDark">#cdcdcf</color>
-    <color name="colorAccent">#0e0e0e</color>
+    <color name="colorAccent">#a4a1a1</color>
     <color name="colorYellow">#ffbb00</color>
+    <color name="red">#FA5858</color>
+    <color name="green">#74DF00</color>
+    <color name="blue">#58ACFA</color>
+    <color name="yellow">#D7DF01</color>
+    <color name="grey">#6E6E6E</color>
+
 
 
 </resources>

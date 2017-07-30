@@ -1,23 +1,29 @@
 package com.example.fbagheri.fulfill;
 
 
-
 import android.annotation.TargetApi;
-import android.util.Log;
-import android.widget.*;
-import android.view.*;
-import android.os.*;
-import android.app.*;
-import android.content.*;
+import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.icu.text.SimpleDateFormat;
+import android.os.Build;
+import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.Spinner;
 
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
 import static com.example.fbagheri.fulfill.Helper.*;
+import static com.example.fbagheri.fulfill.Helper.showToast;
 
 public class TaskActivity extends AppCompatActivity implements View.OnClickListener {
     Button btnSave, btnList;
@@ -27,11 +33,15 @@ public class TaskActivity extends AppCompatActivity implements View.OnClickListe
     private EditText edtTitle, edtDesc, edtDate;
     private boolean isInEditMode = false;
     int position = -1;
-    TaskApp myApp;
+    G myApp;
     private DatePickerDialog datePDialog;
     private SimpleDateFormat dateFormatter, now_date;
     private Spinner spinnerDifficulty ,spinnerCategory;
     ArrayAdapter<CharSequence> difAdapter;
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
 
 
     @TargetApi(Build.VERSION_CODES.N)
@@ -39,7 +49,7 @@ public class TaskActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.task_layout);
-        myApp = (TaskApp) getApplication();
+        myApp = (G) getApplication();
 
         findViewsById();
 
@@ -74,27 +84,27 @@ public class TaskActivity extends AppCompatActivity implements View.OnClickListe
         spinnerDifficulty.setAdapter(difAdapter);
 
         spinnerDifficulty.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-                String item = adapterView.getItemAtPosition(position).toString();
+                                                        @Override
+                                                        public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+                                                            String item = adapterView.getItemAtPosition(position).toString();
 
-                switch (item) {
-                    case "Easy":
-                        difficulty = 1;
-                        break;
-                    case "Medium":
-                        difficulty = 2;
-                        break;
-                    case "Hard":
-                        difficulty = 3;
-                        break;
+                                                            switch (item) {
+                                                                case "Easy":
+                                                                    difficulty = 1;
+                                                                    break;
+                                                                case "Medium":
+                                                                    difficulty = 2;
+                                                                    break;
+                                                                case "Hard":
+                                                                    difficulty = 3;
+                                                                    break;
 
-                    default:
-                        break;
-                }
+                                                                default:
+                                                                    break;
+                                                            }
 
-                Log.d("yes",item );
-            }
+                                                           Log.d("yes",item );
+                                                        }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
@@ -151,26 +161,26 @@ public class TaskActivity extends AppCompatActivity implements View.OnClickListe
 
         });
 
-    }
+        }
 
 
-    @TargetApi(Build.VERSION_CODES.N)
-    private void findViewsById () {
-        btnList = (Button) findViewById(R.id.btn_cancel);
-        btnSave = (Button) findViewById(R.id.btn_save);
+        @TargetApi(Build.VERSION_CODES.N)
+        private void findViewsById () {
+            btnList = (Button) findViewById(R.id.btn_list);
+            btnSave = (Button) findViewById(R.id.btn_save);
 
-        edtTitle = (EditText) findViewById(R.id.edt_title);
-        edtDesc = (EditText) findViewById(R.id.edt_desc);
-        edtDate = (EditText) findViewById(R.id.edt_date);
-        now_date = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
-        String currentDTime = now_date.format(new Date());
-        edtDate.setText(currentDTime );
-        edtDate.setInputType(InputType.TYPE_NULL);
+            edtTitle = (EditText) findViewById(R.id.edt_title);
+            edtDesc = (EditText) findViewById(R.id.edt_desc);
+            edtDate = (EditText) findViewById(R.id.edt_date);
+            now_date = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
+            String currentDTime = now_date.format(new Date());
+            edtDate.setText(currentDTime );
+            edtDate.setInputType(InputType.TYPE_NULL);
 
 
-        spinnerDifficulty = (Spinner) findViewById(R.id.spnr_difficulty);
-        spinnerCategory =  (Spinner) findViewById(R.id.spnr_Category );
-    }
+            spinnerDifficulty = (Spinner) findViewById(R.id.spnr_difficulty);
+            spinnerCategory =  (Spinner) findViewById(R.id.spnr_Category );
+        }
 
 
     private void setDateTimeField() {
@@ -207,8 +217,8 @@ public class TaskActivity extends AppCompatActivity implements View.OnClickListe
                     spinnerCategory.setEnabled(false);
                     spinnerDifficulty.setEnabled(false);
 
-                    // btnSave.setVisibility(View.INVISIBLE);
-                    // edtDate.setFocusable(false);
+                   // btnSave.setVisibility(View.INVISIBLE);
+                   // edtDate.setFocusable(false);
 
                     break;
 
@@ -216,17 +226,17 @@ public class TaskActivity extends AppCompatActivity implements View.OnClickListe
                     edtTitle.setFocusable(true);
                     edtDesc.setFocusable(true);
                     edtTitle.requestFocus();
-                    // btnSave.setVisibility(View.VISIBLE);
+                   // btnSave.setVisibility(View.VISIBLE);
                     isInEditMode = true;
                     break;
             }
             edtTitle.setText(myTask.getTitle());
             edtDesc.setText(myTask.getDesc());
             edtDate.setText(myTask.getDueDate());
-            // edtDate.setText("ok");
+           // edtDate.setText("ok");
             spinnerDifficulty.setSelection(myTask.getDifficulty()-1);
             spinnerCategory.setSelection(myTask.getImageTagId()-1);
-            //  int  d = myNote.getDifficulty() -1;
+          //  int  d = myNote.getDifficulty() -1;
 
 
 
@@ -238,12 +248,12 @@ public class TaskActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_save:
-                saveTask();
+                saveNote();
                 Intent intent = new Intent(this, HomeActivity.class);
                 startActivity(intent);
                 break;
 
-            case R.id.btn_cancel:
+            case R.id.btn_list:
                 Intent i = new Intent(this, HomeActivity.class);
                 startActivity(i);
                 break;
@@ -256,7 +266,7 @@ public class TaskActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-    private void saveTask() {
+    private void saveNote() {
         if (edtTitle.getText().toString().equals("")) {
             showToast("Please enter a title", this);
             return;
@@ -268,43 +278,26 @@ public class TaskActivity extends AppCompatActivity implements View.OnClickListe
 
         if (isInEditMode) //update
         {
-
             myApp.getTasks().get(position).setTitle(edtTitle.getText().toString());
             myApp.getTasks().get(position).setDesc(edtDesc.getText().toString());
             myApp.getTasks().get(position).setImageTagId(imageTagId);
             myApp.getTasks().get(position).setDifficulty(difficulty);
-            Log.d("yes", edtDate.getText().toString());
-
-            myApp.getTasks().get(position).setDueDate(edtDate.getText().toString());
-
-            Task updatedTask = new Task(edtTitle.getText().toString(), edtDesc.getText().toString(),position,imageTagId, difficulty);
-            myApp.update(updatedTask);
-            Helper.showToast("Edit completed", this);
-            /*
-            myApp.getTasks().get(position).setTitle(edtTitle.getText().toString());
-            myApp.getTasks().get(position).setDesc(edtDesc.getText().toString());
-            myApp.getTasks().get(position).setImageTagId(imageTagId);
-            myApp.getTasks().get(position).setDifficulty(difficulty);
-            myApp.getTasks().get(position).setDueDate(dueDate);
             Log.d("yes", edtDate.getText().toString());
 
             myApp.getTasks().get(position).setDueDate(edtDate.getText().toString());
 
             Task updatedTask = new Task(edtTitle.getText().toString(), edtDesc.getText().toString(),imageTagId, position, difficulty);
             myApp.update(updatedTask);
-            Helper.showToast("Edit completed", this);*/
-        }
-        else   //insert
-        {
+            Helper.showToast("Edit completed", this);
+        } else {// insert
 
-            Task task = new Task(edtTitle.getText().toString(), edtDesc.getText().toString(),position, imageTagId, difficulty );
-           // Task task = new Task(edtTitle.getText().toString(), edtDesc.getText().toString(),position, imageTagId, difficulty ,edtDate.getText().toString());
-            myApp.getTasks().add(task);
-            myApp.create(task);
-            edtTitle.setText("");
-            edtDesc.setText("");
-            edtTitle.requestFocus();
-            Log.d("yes", imageTagId + "" + difficulty + "");
+                Task task = new Task(edtTitle.getText().toString(), edtDesc.getText().toString(), imageTagId, difficulty ,edtDate.getText().toString());
+                myApp.getTasks().add(task);
+                myApp.create(task);
+                edtTitle.setText("");
+                edtDesc.setText("");
+                edtTitle.requestFocus();
+                Log.d("yes", imageTagId + "" + difficulty + "");
             Log.d("yes",edtDate.getText().toString());
 
 

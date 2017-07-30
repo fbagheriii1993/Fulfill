@@ -2,13 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:baselineAligned="false">
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_width="fill_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="2.5"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp"
+        android:baselineAligned="false">
 
         <LinearLayout
             android:orientation="vertical"
@@ -205,7 +207,8 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:id="@+id/r5"
-                android:gravity="right">
+                android:gravity="right"
+                android:baselineAligned="false">
 
 
                 <LinearLayout
@@ -272,17 +275,5 @@
         </LinearLayout>
 
     </LinearLayout>
-
-    <menu xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent">
-        <item android:id="@+id/search"
-            android:title="Search"
-            android:icon="@drawable/home"
-            android:showAsAction="collapseActionView|ifRoom"
-            android:actionViewClass="android.widget.SearchView"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent" />
-    </menu>
 
 </LinearLayout>
