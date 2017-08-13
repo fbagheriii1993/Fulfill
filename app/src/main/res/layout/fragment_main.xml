@@ -1,40 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    tools:context="com.example.fbagheri.fulfill.MainFragment"
+    android:orientation="vertical"
+    >
 
-    <LinearLayout android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
 
-        <android.support.v7.widget.Toolbar
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/colorGrayDark">
-            <LinearLayout
+        <LinearLayout android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <android.support.v7.widget.Toolbar
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="@string/myapp"
-                    android:id="@+id/appName"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/colorGrayDark">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:gravity="center"
-                    android:layout_gravity="center"
+                    android:orientation="horizontal">
 
-                    />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/myapp"
+                        android:id="@+id/appName"
+                        android:gravity="center"
+                        android:layout_gravity="center"
 
-            </LinearLayout>
+                        />
+
+                </LinearLayout>
 
 
 
-        </android.support.v7.widget.Toolbar>
-    </LinearLayout>
+            </android.support.v7.widget.Toolbar>
+        </LinearLayout>
 
 
         <LinearLayout
@@ -311,38 +313,23 @@
 
 
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@color/blue">
-
-        <ListView
+        <ScrollView
             android:layout_width="match_parent"
-            android:id="@+id/lst_notes"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="?attr/actionBarSize"/>
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/blue">
 
-    </ScrollView>
+            <ListView
+                android:layout_width="match_parent"
+                android:id="@+id/lst_notes"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="?attr/actionBarSize"/>
 
-    <android.support.design.widget.FloatingActionButton
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="25dp"
-        android:id="@+id/floatingbtn"
-        android:elevation="16dp"
-        app:rippleColor="@color/blue"
-        android:layout_gravity="bottom"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true">
+        </ScrollView>
 
 
 
-    </android.support.design.widget.FloatingActionButton>
 
 
-
-</LinearLayout>
-
+    </LinearLayout>
 
