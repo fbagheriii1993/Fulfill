@@ -1,10 +1,13 @@
 package com.example.fbagheri.fulfill;
 
         import android.app.ProgressDialog;
+        import android.graphics.Color;
+        import android.graphics.drawable.ColorDrawable;
         import android.os.Bundle;
         import android.support.v7.app.AppCompatActivity;
         import android.util.Log;
         import android.view.View;
+        import android.view.Window;
         import android.widget.Button;
         import android.widget.EditText;
         import android.widget.TextView;
@@ -56,9 +59,13 @@ public class SignUpActivity extends AppCompatActivity {
 
         final ProgressDialog progressDialog = new ProgressDialog(SignUpActivity.this,
                 R.style.AppTheme_Dark_Dialog);
+
+        progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        progressDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         progressDialog.setIndeterminate(true);
-        progressDialog.setMessage("Creating Account...");
         progressDialog.show();
+        progressDialog.setContentView(R.layout.pd_layout);
+
 
         String name = _nameText.getText().toString();
         String email = _emailText.getText().toString();

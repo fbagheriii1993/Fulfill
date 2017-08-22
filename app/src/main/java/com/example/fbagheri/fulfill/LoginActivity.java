@@ -6,52 +6,42 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-
 import android.content.Intent;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener , View.OnKeyListener {
     private static final String TAG = "LoginActivity";
     private static final int REQUEST_SIGNUP = 0;
 
-    @InjectView(R.id.input_email) EditText _emailText;
-    @InjectView(R.id.input_password) EditText _passwordText;
-    @InjectView(R.id.btn_login) Button _loginButton;
-    @InjectView(R.id.link_signup) TextView _signupLink;
+    @InjectView(R.id.input_email)
+    EditText _emailText;
+    @InjectView(R.id.input_password)
+    EditText _passwordText;
+    @InjectView(R.id.btn_login)
+    Button _loginButton;
+    @InjectView(R.id.link_signup)
+    TextView _signupLink;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
-        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         setContentView(R.layout.login_layout);
         ButterKnife.inject(this);
 
-        _loginButton.setOnClickListener(new View.OnClickListener() {
+        _loginButton.setOnClickListener(this);
+        _loginButton.setOnKeyListener(this);
 
-            @Override
-            public void onClick(View v) {
-                login();
-            }
-        });
-
-        _signupLink.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                // Start the Signup activity
-                Intent intent = new Intent(getApplicationContext(), SignUpActivity.class);
-                startActivityForResult(intent, REQUEST_SIGNUP);
-            }
-        });
+        _signupLink.setOnClickListener(this);
     }
 
     public void login() {
@@ -68,15 +58,13 @@ public class LoginActivity extends AppCompatActivity {
                 R.style.AppTheme_Dark_Dialog);
 
         progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-
         progressDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        progressDialog.setContentView(R.layout.pd_layout);
         progressDialog.setIndeterminate(true);
         progressDialog.show();
+        progressDialog.setContentView(R.layout.pd_layout);
 
 
-         String password = _passwordText.getText().toString();
+        String password = _passwordText.getText().toString();
 
         // TODO: Implement your own authentication logic here.
 
@@ -142,5 +130,34 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         return valid;
+    }
+
+    @Override
+    public boolean onKey(View view, int keyCode, KeyEvent keyEvent) {
+        if (keyCode == KeyEvent.FLAG_EDITOR_ACTION) {
+            Log.d("yes","yeeeeeeees");
+
+            onClick(_loginButton);
+        }
+
+
+        return false;
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.btn_login:
+                login();
+                break;
+            case R.id.link_signup:
+                Intent intent = new Intent(getApplicationContext(), SignUpActivity.class);
+                startActivityForResult(intent, REQUEST_SIGNUP);
+                break;
+
+            default:
+                break;
+
+        }
     }
 }

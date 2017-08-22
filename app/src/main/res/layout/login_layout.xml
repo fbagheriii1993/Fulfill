@@ -16,6 +16,19 @@
 
         <TextView
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Login to"
+            android:id="@+id/txtView12"
+            android:textSize="15sp"
+            android:layout_marginTop="30dp"
+            android:textColor="@color/colorGrayDark"
+            android:textStyle="bold"
+            android:layout_marginLeft="60dp"
+            android:layout_gravity="left" />
+
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="72dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/app_name"
@@ -24,11 +37,11 @@
             android:textColor="@color/colorYellow"
             android:textStyle="bold"
             android:layout_marginBottom="24dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="40dp"/>
+            android:layout_gravity="center_horizontal" />
 
 
         <!-- Email Label -->
+
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
